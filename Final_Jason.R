@@ -1,17 +1,22 @@
+#Setting an end condition, allows for loop to be broken.
 end_game <- 0
 
 while(end_game < 1){
+#Setting starting values
 death_count <- 0
 flare_gun <- 0 
 searchobj <- 0
 tele <- 0
 car <-  0
 boat <- 0
+#Future while loop condition starting value
 escape <- 0
 
 #Jason pick
 print('Pick your Jason')
 jason <-readline('Options: PartVIII, PartV, PartVII ') 
+  
+#Depending on Jason chosen, you get a different amount of points towards death counter automatically. Resemblance of difficulty.
 if(jason == 'PartVIII') {
   death_count <- sample(1:5, 1, prob = c(.2 , .1, .2, .2, .3))
 }
@@ -27,7 +32,7 @@ if(jason == 'PartVII') {
 print('Pick your Character')
 char <-readline('Options: AJ, Chad, Tiffany ') 
 
-
+#Depending on character, you get a different amount of points towards death counter automatically
 if(char == 'AJ'){
   death_count <- death_count + sample(0:2, 1, prob = c(.2 , .4, .4))
 }
@@ -167,9 +172,10 @@ if(option1 == 3){
               print('You lucky mother fucker')    
               reaction <-readline('Do you run now?(Y/N)') 
               if(reaction == 'Y') {
+                #You ran
                 death_count <- death_count + sample(1:3, 1, prob = c(.3 , .3, .4))
                 print('As you FINALLY run, he appears and injures you')
-              } else print('You died.. Really?')
+              } else print('You died.. Really?') #You didn't run
             } 
             if(ProbJ == 1) {
                       print('Jason appears and begins to chase you... No surprise')
@@ -205,12 +211,12 @@ print('You run')
 print('With Jason not in sight, you have time to try and escape')
 
 
-
+#Setting another while loop to function as the searching for an exit portion of the game. You will be looped between where to search for until you die or escape
 while(escape < 1 && death_count < 25 ){
 print('What do you want to do?')
 option2 <-readline('Options: Search for a telephone(1), Try to fix a car(2), Try to fix a boat(3)') 
 
-#Tele
+#Telephone
 if(option2 == 1){
   #searching for telephone
   # Where search
